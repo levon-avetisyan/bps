@@ -8,6 +8,33 @@ $(document).ready(function () {
         $("li").removeClass("active");
         $(this).addClass("active");
     });
+
+    $("input[name='sponsorAmount']").on('change', function () {
+        $('input:radio[name=' + $(this).attr('name') + ']').parent().parent().removeClass('active');
+        $(this).parent().parent().addClass('active');
+    });
+
+    $("input[name='frequency']").on('change', function () {
+        $('input:radio[name=' + $(this).attr('name') + ']').parent().parent().removeClass('active');
+        $(this).parent().parent().addClass('active');
+    });
+
+    $("input[name='campaign']").on('change', function () {
+        $('input:radio[name=' + $(this).attr('name') + ']').parent().parent().removeClass('active');
+        $(this).parent().parent().addClass('active');
+    });
+
+    $('.btn-process').on('click', function (e) {
+        e.preventDefault();
+        $('.process-menu').toggleClass('active');
+        $('.fade-body').toggleClass('d-block');
+        if ($('.fade-body').hasClass('d-block') && $('.process-menu').hasClass('active')) {
+            $('.fade-body').on('click', function () {
+                $('.process-menu').removeClass('active');
+                $('.fade-body').removeClass('d-block');
+            });
+        }
+    });
 });
 
 },{"jQuery":2}],2:[function(require,module,exports){
