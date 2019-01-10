@@ -2995,9 +2995,38 @@ body {
   min-height: 100%;
   font-family: 'Kanit', sans-serif; }
 
+.fp-tableCell {
+  vertical-align: top;
+  padding-top: 15%; }
+
 h1 {
   font-weight: 300;
   font-size: 32px; }
+
+.company-logo {
+  padding-top: 30px;
+  width: 100%;
+  background-color: white;
+  position: fixed;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  z-index: 5;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+  .company-logo img {
+    width: 300px; }
 
 .option-box {
   display: -webkit-box;
@@ -3068,28 +3097,8 @@ h1 {
   .option-box.duration-option {
     padding: 0 40px; }
 
-.duration {
-  padding: 60px 0 0; }
-
 .campaign {
-  padding: 60px 0 60px; }
-
-.company-logo {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center; }
-  .company-logo img {
-    width: 300px; }
+  padding: 0 0 60px; }
 
 .freq-select {
   max-height: 100px;
@@ -3170,7 +3179,7 @@ h1 {
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 1;
+  z-index: 6;
   background-color: rgba(0, 0, 0, 0.4);
   -webkit-transition: all 0.8s ease-in;
   transition: all 0.8s ease-in; }
@@ -3220,8 +3229,8 @@ h1 {
         font-size: 17px;
         text-transform: uppercase;
         border-bottom: 2px solid transparent;
-        -webkit-transition: linear 0.5s all;
-        transition: linear 0.5s all;
+        -webkit-transition: all 0.5s linear;
+        transition: all 0.5s linear;
         font-weight: 500;
         padding: 5px 0; }
         .process-menu.menu li a span {
@@ -3229,8 +3238,8 @@ h1 {
         .process-menu.menu li a:hover {
           color: #db5523;
           border-bottom: 2px solid #db5523;
-          -webkit-transition: linear 0.5s all;
-          transition: linear 0.5s all;
+          -webkit-transition: all 0.5s linear;
+          transition: all 0.5s linear;
           -webkit-transform: scale(1.15);
                   transform: scale(1.15);
           font-weight: 700; }
