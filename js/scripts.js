@@ -4,19 +4,53 @@
 var $ = require('jQuery');
 
 $(document).ready(function () {
-    $('#freqSelect li').click(function () {
-        $("li").removeClass("active");
-        $(this).addClass("active");
-    });
 
     $("input[name='sponsorAmount']").on('change', function () {
         $('input:radio[name=' + $(this).attr('name') + ']').parent().parent().removeClass('active');
         $(this).parent().parent().addClass('active');
+        $('#otherAmountInput').val(' ');
+        $('#confirmAmount').addClass('disabled');
+        setTimeout("window.location = \"#durations\"", 800);
     });
 
-    $("input[name='frequency']").on('change', function () {
+    $("#otherAmountInput").on('focus', function () {
+        $('#confirmAmount').removeClass('disabled');
+        $("input[name='sponsorAmount']").parent().parent().removeClass('active');
+    });
+
+    $("#confirmAmount").on('click', function () {
+        setTimeout("window.location = \"#durations\"", 800);
+    });
+
+    $("#freqSelect li").click(function () {
+        $("li").removeClass("active");
+        $(this).addClass("active");
+        var selectedFrequency = $(this).html();
+        console.log(selectedFrequency);
+    });
+
+    $("input[name='duration']").on('change', function () {
+        var value = $(this).val();
         $('input:radio[name=' + $(this).attr('name') + ']').parent().parent().removeClass('active');
         $(this).parent().parent().addClass('active');
+        if (value === 'once') {
+            $("#freqSelect li[class='active']").removeClass();
+            $("#freqSelect li:contains(\'Ongoing\')").addClass("active");
+            $("#freqSelect li[class!='active']").addClass("disabled");
+            $("input[name='duration']").filter('[value!="once"]').prop('disabled', true).parent().parent().addClass('disabled');
+            setTimeout("window.location = \"#campaigns\"", 1100);
+            $(this).one('click', function () {
+                $('input:radio[name=' + $(this).attr('name') + ']').parent().parent().removeClass('active');
+                $("input[name='duration']").filter('[value!="once"]').prop('disabled', false).parent().parent().removeClass('disabled');
+                $("#freqSelect li[class!='active']").removeClass("disabled");
+            });
+        } else {
+            $(".freq-select").addClass('highlight');
+            setTimeout("$(\".freq-select\").removeClass('highlight');", 1000);
+            $("#freqSelect li").on('click', function () {
+                setTimeout("window.location = \"#campaigns\"", 1000);
+            });
+        }
     });
 
     $("input[name='campaign']").on('change', function () {

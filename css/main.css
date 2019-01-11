@@ -2995,12 +2995,23 @@ body {
   min-height: 100%;
   font-family: 'Kanit', sans-serif; }
 
-.fp-tableCell {
-  vertical-align: top;
-  padding-top: 15%; }
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0; }
+
+input.bps-input {
+  border-radius: 24px;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease; }
+  input.bps-input:focus {
+    outline: none;
+    border: 2px solid #2a2b2d;
+    -webkit-box-shadow: none;
+            box-shadow: none; }
 
 h1 {
-  font-weight: 300;
+  font-weight: 200;
   font-size: 32px; }
 
 .company-logo {
@@ -3079,11 +3090,11 @@ h1 {
     -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
   .option-box.amount-option {
-    height: 80px;
-    padding: 35px; }
+    height: 100px;
+    padding: 45px; }
     .option-box.amount-option h2 {
       position: relative;
-      font-size: 28px;
+      font-size: 32px;
       font-weight: 300;
       margin: 0; }
       .option-box.amount-option h2 sup {
@@ -3092,19 +3103,123 @@ h1 {
         top: 10px;
         font-size: 16px;
         font-weight: 500; }
-  .option-box.campaign-option {
-    padding: 0 40px; }
   .option-box.duration-option {
-    padding: 0 40px; }
+    padding: 0 40px;
+    font-size: 24px; }
+    .option-box.duration-option.disabled {
+      background-color: #E5E5E5;
+      border: 1px solid #E5E5E5;
+      color: white;
+      -webkit-box-shadow: none;
+              box-shadow: none; }
+      .option-box.duration-option.disabled label {
+        cursor: default; }
+  .option-box.campaign-option {
+    height: 100px;
+    padding: 0 40px;
+    font-size: 24px; }
+
+.other-amount-wrap {
+  max-width: 500px;
+  margin: 0 auto;
+  position: relative; }
+  .other-amount-wrap label {
+    white-space: nowrap;
+    padding-right: 30px;
+    font-size: 24px;
+    font-weight: 300;
+    margin-bottom: 0; }
+  .other-amount-wrap i.fa-dollar-sign {
+    font-size: 22px;
+    color: #2a2b2d;
+    position: absolute;
+    left: 40%;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%); }
+  .other-amount-wrap input {
+    padding-left: 40px;
+    font-size: 22px;
+    color: black;
+    line-height: 18px;
+    height: 40px; }
+  .other-amount-wrap button.btn-confirm {
+    border: none;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    color: white;
+    position: absolute;
+    font-size: 20px;
+    font-weight: 300;
+    right: -2px;
+    bottom: 0;
+    border-radius: 24px;
+    height: 40px;
+    padding: 0 20px;
+    cursor: pointer;
+    background-size: 200% auto;
+    background-image: -webkit-gradient(linear, left top, right top, from(#232526), color-stop(51%, #414345), to(#232526));
+    background-image: linear-gradient(to right, #232526 0%, #414345 51%, #232526 100%); }
+    .other-amount-wrap button.btn-confirm:hover {
+      background-position: right center; }
+    .other-amount-wrap button.btn-confirm.disabled {
+      pointer-events: none;
+      opacity: 0.6; }
+    .other-amount-wrap button.btn-confirm:focus {
+      outline: none;
+      background-color: #2a2b2d; }
+    .other-amount-wrap button.btn-confirm:active {
+      border: 2px solid #2a2b2d;
+      background-color: white;
+      color: #2a2b2d;
+      opacity: 0.8; }
+
+.fp-tableCell {
+  vertical-align: top;
+  padding-top: 10%; }
+
+.amounts .amounts-options {
+  margin-bottom: 10vh; }
+
+.amounts h1 {
+  margin-bottom: 10vh; }
+
+.duration h1 {
+  margin-bottom: 10vh; }
+
+.duration .duration-option {
+  height: 100px; }
 
 .campaign {
-  padding: 0 0 60px; }
+  margin-bottom: 20vh; }
+  .campaign h1 {
+    margin-bottom: 10vh; }
 
 .freq-select {
-  max-height: 100px;
-  overflow-y: hidden; }
+  max-height: 200px;
+  max-width: 160px;
+  overflow-y: hidden;
+  -webkit-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  border-radius: 12px;
+  padding-left: 10px; }
+  .freq-select > div {
+    max-height: 150px; }
+  .freq-select.highlight {
+    -webkit-transform: scale(1.03);
+            transform: scale(1.03);
+    -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }
+  .freq-select .simplebar-content {
+    overflow-y: scroll;
+    padding-bottom: 10px !important;
+    padding-top: 10px !important; }
   .freq-select ul {
-    padding-right: 20px; }
+    padding-right: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 0; }
     .freq-select ul li {
       text-align: center;
       cursor: pointer;
@@ -3114,6 +3229,7 @@ h1 {
       font-size: 18px;
       height: 34px;
       position: relative;
+      font-weight: 300;
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
@@ -3127,9 +3243,12 @@ h1 {
       -webkit-box-align: center;
           -ms-flex-align: center;
               align-items: center; }
+      .freq-select ul li.disabled {
+        pointer-events: none;
+        opacity: 0.6; }
       .freq-select ul li.active {
         color: #2a2b2d;
-        font-size: 21px;
+        font-weight: 400;
         border-top: 1px solid #E9E9E9;
         border-bottom: 1px solid #E9E9E9; }
 
@@ -3207,6 +3326,8 @@ h1 {
     color: white;
     -webkit-transition: all 0.5s ease-in;
     transition: all 0.5s ease-in; }
+    .process-menu h1 b {
+      font-weight: 300; }
   .process-menu.active {
     opacity: 1;
     -webkit-transform: translate(-50%, 30%);
@@ -3243,3 +3364,23 @@ h1 {
           -webkit-transform: scale(1.15);
                   transform: scale(1.15);
           font-weight: 700; }
+
+.payment-option {
+  height: 100px;
+  width: 300px;
+  border: 1px solid #efefef;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+  .payment-option h2 {
+    font-weight: 200; }
