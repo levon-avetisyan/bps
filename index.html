@@ -21,6 +21,15 @@
     <link rel="stylesheet" href="./css/main.css">
 </head>
 <body>
+
+<div class="selected-options">
+    <ul class="selected-options-list list-inline list-unstyled">
+        <li class="list-inline-item" id="amountSelected">--</li>
+        <li class="list-inline-item" id="durationSelected">--</li>
+        <li class="list-inline-item" id="durationTimes">--</li>
+        <li class="list-inline-item" id="campaignSelected">--</li>
+    </ul>
+</div>
 <div class="company-logo mb-5">
     <img src="./img/logo.png" alt="Logo">
 </div>
@@ -28,47 +37,51 @@
     <div data-anchor="amounts" class="section">
         <div class="amounts">
             <div class="container">
-                <h1 class="text-center">Choose Amount</h1>
+                <h1 class="text-center section-title">Choose Amount</h1>
                 <div class="amounts-options">
-                    <div class="amounts-container d-flex flex-row justify-content-center mb-5">
-                        <div class="option-box amount-option mr-5">
+                    <div class="amounts-container d-flex flex-row justify-content-center mb-4 mb-sm-5">
+                        <div class="option-box amount-option mr-4 mr-sm-5">
                             <label for="amountXS">
-                                <input type="radio" name="sponsorAmount" id="amountXS">
+                                <input type="radio" value="$50.00" name="sponsorAmount" id="amountXS">
                             </label>
-                            <h2><sup>$</sup>50</h2>
+                            <h2><sup><i class="fas fa-dollar-sign"></i></sup>50</h2>
                         </div>
-                        <div class="option-box amount-option mr-5">
+                        <div class="option-box amount-option mr-4 mr-sm-5">
                             <label for="amountSM">
-                                <input type="radio" name="sponsorAmount" id="amountSM">
+                                <input type="radio" value="$100.00" name="sponsorAmount" id="amountSM">
                             </label>
-                            <h2><sup>$</sup>100</h2></div>
+                            <h2><sup><i class="fas fa-dollar-sign"></i></sup>100</h2></div>
                         <div class="option-box amount-option">
                             <label for="amountMD">
-                                <input type="radio" name="sponsorAmount" id="amountMD">
+                                <input type="radio" value="$150.00" name="sponsorAmount" id="amountMD">
                             </label>
-                            <h2><sup>$</sup>150</h2>
+                            <h2><sup><i class="fas fa-dollar-sign"></i></sup>150</h2>
                         </div>
                     </div>
                     <div class="amounts-container d-flex flex-row justify-content-center mb-5">
-                        <div class="option-box amount-option mr-5">
+                        <div class="option-box amount-option mr-4 mr-sm-5">
                             <label for="amountXL">
-                                <input type="radio" name="sponsorAmount" id="amountXL">
+                                <input type="radio" value="$250.00" name="sponsorAmount" id="amountXL">
                             </label>
-                            <h2><sup>$</sup>250</h2>
+                            <h2><sup><i class="fas fa-dollar-sign"></i></sup>250</h2>
                         </div>
                         <div class="option-box amount-option">
                             <label for="amountXLL">
-                                <input type="radio" name="sponsorAmount" id="amountXLL">
+                                <input type="radio" value="$400.00" name="sponsorAmount" id="amountXLL">
                             </label>
-                            <h2><sup>$</sup>400</h2>
+                            <h2><sup><i class="fas fa-dollar-sign"></i></sup>400</h2>
                         </div>
                     </div>
                 </div>
-                <div class="other-amount-wrap d-flex justify-content-center align-items-center">
+                <div class="other-amount-wrap d-flex justify-content-center align-items-center flex-column flex-sm-row">
                     <label for="otherAmountInput">Other amount</label>
-                    <input id="otherAmountInput" type="number" min="0" oninput="validity.valid||(value='');" class="form-control bps-input">
-                    <i class="fas fa-dollar-sign"></i>
-                    <button id="confirmAmount" class="btn-confirm">Confirm</button>
+                    <div class="control-wrap">
+                        <input placeholder="0.00" step='0.01' id="otherAmountInput" type="number" min="0"
+                               oninput="validity.valid||(value='');" class="form-control bps-input">
+                        <i class="fas fa-dollar-sign"></i>
+                        <button id="confirmAmount" class="btn-confirm">Confirm</button>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -76,38 +89,42 @@
     <div data-anchor="durations" class="section">
         <div class="duration">
             <div class="container">
-                <h1 class="text-center">Duration</h1>
+                <h1 class="text-center section-title">Duration</h1>
                 <div class="row">
-                    <div class="col-10">
-                        <div class="h-100 d-flex flex-row align-items-center justify-content-center">
-                            <div class="option-box duration-option mr-5">
-                                <label for="freqOneTime">
-                                    <input type="radio" name="duration" id="freqOneTime" value="once">
-                                </label>
-                                One Time
+                    <div class="col-12 col-sm-8 col-md-8 col-lg-10">
+                        <div class="h-100 w-100 d-flex flex-column flex-lg-row justify-content-center align-items-stretch">
+                            <div class="d-flex flex-row align-items-center justify-content-center mb-3 mb-md-4 mb-lg-0">
+                                <div class="option-box duration-option mr-3 mr-md-4 mr-xl-5">
+                                    <label for="freqOneTime">
+                                        <input type="radio" name="duration" id="freqOneTime" value="once">
+                                    </label>
+                                    One Time
+                                </div>
+                                <div class="option-box duration-option mr-0 mr-lg-4 mr-xl-5">
+                                    <label for="freqWeekly">
+                                        <input type="radio" name="duration" id="freqWeekly" value="weekly">
+                                    </label>
+                                    Weekly
+                                </div>
                             </div>
-                            <div class="option-box duration-option mr-5">
-                                <label for="freqWeekly">
-                                    <input type="radio" name="duration" id="freqWeekly" value="weekly">
-                                </label>
-                                Weekly
-                            </div>
-                            <div class="option-box duration-option mr-5">
-                                <label for="freqMonthly">
-                                    <input type="radio" name="duration" id="freqMonthly" value="monthly">
-                                </label>
-                                Monthly
-                            </div>
-                            <div class="option-box duration-option">
-                                <label for="freqYearly">
-                                    <input type="radio" name="duration" id="freqYearly" value="yearly">
-                                </label>
-                                Yearly
+                            <div class="d-flex flex-row align-items-center justify-content-center">
+                                <div class="option-box duration-option mr-3 mr-md-4 mr-xl-5">
+                                    <label for="freqMonthly">
+                                        <input type="radio" name="duration" id="freqMonthly" value="monthly">
+                                    </label>
+                                    Monthly
+                                </div>
+                                <div class="option-box duration-option">
+                                    <label for="freqYearly">
+                                        <input type="radio" name="duration" id="freqYearly" value="yearly">
+                                    </label>
+                                    Yearly
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-2">
-                        <div class="freq-select">
+                    <div class="col-12 col-sm-4 col-md-4 col-lg-2 d-flex justify-content-center align-items-center">
+                        <div class="freq-select w-100 h-100">
                             <ul id="freqSelect" class="list-unstyled freq-select-list" data-simplebar
                                 data-simplebar-auto-hide="false">
                                 <li class="active">Ongoing</li>
@@ -128,23 +145,23 @@
     <div data-anchor="campaigns" class="section">
         <div class="campaign">
             <div class="container">
-                <h1 class="text-center">Campaign</h1>
-                <div class="d-flex flex-row justify-content-center">
-                    <div class="option-box campaign-option mr-5">
+                <h1 class="text-center section-title">Campaign</h1>
+                <div class="d-flex flex-column flex-sm-row justify-content-center align-items-center">
+                    <div class="option-box campaign-option mb-4 mb-sm-0 mr-sm-5">
                         <label for="camp1">
-                            <input type="radio" name="campaign" id="camp1">
+                            <input type="radio" value="Campaign 1" name="campaign" id="camp1">
                         </label>
                         Campaign 1
                     </div>
-                    <div class="option-box campaign-option mr-5">
+                    <div class="option-box campaign-option mb-4 mb-sm-0 mr-sm-5">
                         <label for="camp2">
-                            <input type="radio" name="campaign" id="camp2">
+                            <input type="radio" value="Campaign 2" name="campaign" id="camp2">
                         </label>
                         Campaign 2
                     </div>
                     <div class="option-box campaign-option">
                         <label for="camp3">
-                            <input type="radio" name="campaign" id="camp3">
+                            <input type="radio" value="Campaign 3" name="campaign" id="camp3">
                         </label>
                         Campaign 3
                     </div>
@@ -164,7 +181,7 @@
     </div>
 </div>
 <div class="process-menu d-flex flex-column justify-content-center align-items-center">
-    <h1 class="text-center"><span class="total-amount">Total <b>$0</b></span></h1>
+    <h1 class="text-center"><span class="total-amount">Total <b><span id="total">$0</span></b></span></h1>
     <h1 class="text-center"><span class="total-amount">Today</span></h1>
     <div class="payment-options-wrap mt-5">
         <div class="payment-option mb-3">

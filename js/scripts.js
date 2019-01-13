@@ -4,13 +4,31 @@
 var $ = require('jQuery');
 
 $(document).ready(function () {
+    $("input[name='sponsorAmount']").on('click', function () {
+        $(this).prop("checked", true);
+        $('input:radio[name=' + $(this).attr('name') + ']').parent().parent().removeClass('active');
+        $(this).parent().parent().addClass('active');
+        $('#otherAmountInput').val(' ');
+        $('#confirmAmount').addClass('disabled');
+        $('#amountSelected,#total').html($(this).val());
+        setTimeout("window.location = \"#durations\"", 200);
+    });
 
     $("input[name='sponsorAmount']").on('change', function () {
         $('input:radio[name=' + $(this).attr('name') + ']').parent().parent().removeClass('active');
         $(this).parent().parent().addClass('active');
         $('#otherAmountInput').val(' ');
         $('#confirmAmount').addClass('disabled');
-        setTimeout("window.location = \"#durations\"", 800);
+        $('#amountSelected').html($(this).val());
+        setTimeout("window.location = \"#durations\"", 200);
+    });
+
+    $("#otherAmountInput").on('blur', function () {
+        var value = $(this).val();
+        var decimalNumber = Number.parseFloat(value).toFixed(2);
+        if (value.length > 0) {
+            $(this).val(decimalNumber);
+        }
     });
 
     $("#otherAmountInput").on('focus', function () {
@@ -19,27 +37,32 @@ $(document).ready(function () {
     });
 
     $("#confirmAmount").on('click', function () {
-        setTimeout("window.location = \"#durations\"", 800);
+        $('#amountSelected, #total').html('$' + $("#otherAmountInput").val());
+        setTimeout("window.location = \"#durations\"", 200);
     });
 
     $("#freqSelect li").click(function () {
         $("li").removeClass("active");
         $(this).addClass("active");
         var selectedFrequency = $(this).html();
-        console.log(selectedFrequency);
     });
 
     $("input[name='duration']").on('change', function () {
         var value = $(this).val();
         $('input:radio[name=' + $(this).attr('name') + ']').parent().parent().removeClass('active');
         $(this).parent().parent().addClass('active');
+        $('#durationSelected').html($(this).val());
         if (value === 'once') {
+            $("#durationTimes").html("Ongoing");
             $("#freqSelect li[class='active']").removeClass();
             $("#freqSelect li:contains(\'Ongoing\')").addClass("active");
             $("#freqSelect li[class!='active']").addClass("disabled");
             $("input[name='duration']").filter('[value!="once"]').prop('disabled', true).parent().parent().addClass('disabled');
-            setTimeout("window.location = \"#campaigns\"", 1100);
+            setTimeout("window.location = \"#campaigns\"", 200);
             $(this).one('click', function () {
+                $(this).prop("checked", false);
+                $("#durationTimes").html("--");
+                $('#durationSelected').html("--");
                 $('input:radio[name=' + $(this).attr('name') + ']').parent().parent().removeClass('active');
                 $("input[name='duration']").filter('[value!="once"]').prop('disabled', false).parent().parent().removeClass('disabled');
                 $("#freqSelect li[class!='active']").removeClass("disabled");
@@ -48,12 +71,14 @@ $(document).ready(function () {
             $(".freq-select").addClass('highlight');
             setTimeout("$(\".freq-select\").removeClass('highlight');", 1000);
             $("#freqSelect li").on('click', function () {
-                setTimeout("window.location = \"#campaigns\"", 1000);
+                $("#durationTimes").html($(this).html());
+                setTimeout("window.location = \"#campaigns\"", 200);
             });
         }
     });
 
     $("input[name='campaign']").on('change', function () {
+        $('#campaignSelected').html($(this).val());
         $('input:radio[name=' + $(this).attr('name') + ']').parent().parent().removeClass('active');
         $(this).parent().parent().addClass('active');
     });
