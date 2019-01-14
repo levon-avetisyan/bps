@@ -2838,8 +2838,8 @@ readers do not read off random characters that represent icons */
   font-family: 'Font Awesome 5 Brands';
   font-style: normal;
   font-weight: normal;
-  src: url("../webfonts/fa-brands-400.eot");
-  src: url("../webfonts/fa-brands-400.eot?#iefix") format("embedded-opentype"), url("../webfonts/fa-brands-400.woff2") format("woff2"), url("../webfonts/fa-brands-400.woff") format("woff"), url("../webfonts/fa-brands-400.ttf") format("truetype"), url("../webfonts/fa-brands-400.svg#fontawesome") format("svg"); }
+  src: url("../../prod/webfonts/fa-brands-400.eot");
+  src: url("../../prod/webfonts/fa-brands-400.eot?#iefix") format("embedded-opentype"), url("../../prod/webfonts/fa-brands-400.woff2") format("woff2"), url("../../prod/webfonts/fa-brands-400.woff") format("woff"), url("../../prod/webfonts/fa-brands-400.ttf") format("truetype"), url("../../prod/webfonts/fa-brands-400.svg#fontawesome") format("svg"); }
 
 .fab {
   font-family: 'Font Awesome 5 Brands'; }
@@ -2852,8 +2852,8 @@ readers do not read off random characters that represent icons */
   font-family: 'Font Awesome 5 Free';
   font-style: normal;
   font-weight: 900;
-  src: url("../webfonts/fa-solid-900.eot");
-  src: url("../webfonts/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("../webfonts/fa-solid-900.woff2") format("woff2"), url("../webfonts/fa-solid-900.woff") format("woff"), url("../webfonts/fa-solid-900.ttf") format("truetype"), url("../webfonts/fa-solid-900.svg#fontawesome") format("svg"); }
+  src: url("../../prod/webfonts/fa-solid-900.eot");
+  src: url("../../prod/webfonts/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("../../prod/webfonts/fa-solid-900.woff2") format("woff2"), url("../../prod/webfonts/fa-solid-900.woff") format("woff"), url("../../prod/webfonts/fa-solid-900.ttf") format("truetype"), url("../../prod/webfonts/fa-solid-900.svg#fontawesome") format("svg"); }
 
 .fa,
 .fas {
@@ -2868,8 +2868,8 @@ readers do not read off random characters that represent icons */
   font-family: 'Font Awesome 5 Free';
   font-style: normal;
   font-weight: 400;
-  src: url("../webfonts/fa-regular-400.eot");
-  src: url("../webfonts/fa-regular-400.eot?#iefix") format("embedded-opentype"), url("../webfonts/fa-regular-400.woff2") format("woff2"), url("../webfonts/fa-regular-400.woff") format("woff"), url("../webfonts/fa-regular-400.ttf") format("truetype"), url("../webfonts/fa-regular-400.svg#fontawesome") format("svg"); }
+  src: url("../../prod/webfonts/fa-regular-400.eot");
+  src: url("../../prod/webfonts/fa-regular-400.eot?#iefix") format("embedded-opentype"), url("../../prod/webfonts/fa-regular-400.woff2") format("woff2"), url("../../prod/webfonts/fa-regular-400.woff") format("woff"), url("../../prod/webfonts/fa-regular-400.ttf") format("truetype"), url("../../prod/webfonts/fa-regular-400.svg#fontawesome") format("svg"); }
 
 .far {
   font-family: 'Font Awesome 5 Free';
@@ -3018,8 +3018,9 @@ input.bps-input {
             box-shadow: none; }
 
 h1.section-title {
-  font-weight: 200;
-  font-size: 32px; }
+  font-weight: 300;
+  font-size: 34px;
+  font-family: 'Montserrat', sans-serif; }
 
 .company-logo {
   padding-top: 30px;
@@ -3156,7 +3157,8 @@ h1.section-title {
       font-size: 24px;
       color: black;
       line-height: 18px;
-      height: 50px; }
+      height: 65px;
+      border-radius: 40px; }
     .other-amount-wrap .control-wrap i.fa-dollar-sign {
       font-size: 22px;
       color: #2a2b2d;
@@ -3169,21 +3171,18 @@ h1.section-title {
     white-space: nowrap;
     padding-right: 30px;
     font-size: 24px;
-    font-weight: 300;
-    margin-bottom: 0; }
+    font-weight: 300; }
   .other-amount-wrap button.btn-confirm {
     border: none;
     -webkit-transition: 0.5s;
     transition: 0.5s;
     color: white;
-    position: absolute;
     font-size: 20px;
     font-weight: 300;
-    right: -2px;
     bottom: 0;
-    border-radius: 24px;
-    height: 50px;
-    padding: 0 20px;
+    border-radius: 40px;
+    height: 46px;
+    padding: 0 30px;
     cursor: pointer;
     background-size: 200% auto;
     background-image: -webkit-gradient(linear, left top, right top, from(#232526), color-stop(51%, #414345), to(#232526));
@@ -3207,7 +3206,7 @@ h1.section-title {
   padding-top: 15vh; }
 
 .amounts .amounts-options {
-  margin-bottom: 10vh; }
+  margin-bottom: 5vh; }
 
 .amounts h1 {
   margin-bottom: 10vh; }
@@ -3409,9 +3408,132 @@ h1.section-title {
           justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
-          align-items: center; }
+          align-items: center;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease; }
   .payment-option h2 {
-    font-weight: 200; }
+    font-weight: 300;
+    font-size: 30px; }
+  .payment-option:hover {
+    border: 1px solid #2a2b2d; }
+
+.scroll-top {
+  position: fixed;
+  bottom: 80px;
+  left: 30px;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease; }
+  .scroll-top:hover button {
+    -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
+  .scroll-top button.btn-scroll-top {
+    -webkit-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    background-color: white;
+    border: 2px solid #2a2b2d;
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    position: relative;
+    cursor: pointer;
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
+    .scroll-top button.btn-scroll-top:focus {
+      outline: none; }
+    .scroll-top button.btn-scroll-top:hover {
+      -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+              box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
+    .scroll-top button.btn-scroll-top i {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
+      font-size: 18px;
+      color: #2a2b2d;
+      cursor: pointer; }
+
+.company-info {
+  position: fixed;
+  right: 30px;
+  bottom: 60px;
+  font-family: 'Montserrat', sans-serif; }
+  .company-info ul li img {
+    margin-right: 10px; }
+
+#swipeView, #keyInView, #payOptionView {
+  padding: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0; }
+
+#payOptionView {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start; }
+
+#keyInView {
+  display: none; }
+
+#swipeView {
+  display: none; }
+
+.modal-title {
+  font-weight: 200;
+  font-size: 34px;
+  line-height: 46px; }
+
+.form-wrap {
+  padding: 0 30px; }
+  .form-wrap .credit-card-form .form-group {
+    position: relative; }
+
+.floating-label {
+  position: absolute;
+  z-index: 10;
+  left: 5px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  padding: 2px 6px;
+  border-radius: 12px;
+  font-size: 14px;
+  color: #c7c7c7;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  font-weight: 200; }
+
+.focused .floating-label {
+  position: absolute;
+  z-index: 10;
+  left: 8px;
+  top: 0;
+  padding: 1px 3px;
+  border-radius: 4px;
+  font-size: 12px;
+  background: white;
+  color: #2a2b2d; }
+
+.card-control:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border: 1px solid #2a2b2d; }
 
 @media (max-width: 575px) {
   #fp-nav.right {

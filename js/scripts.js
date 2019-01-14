@@ -2,6 +2,11 @@
 'use strict';
 
 var $ = require('jQuery');
+$(window).on('load', function () {
+    $("#payOptionView").show();
+    $("#keyInView").hide();
+    $("#swipeView").hide();
+});
 
 $(document).ready(function () {
     $("input[name='sponsorAmount']").on('click', function () {
@@ -83,7 +88,7 @@ $(document).ready(function () {
         $(this).parent().parent().addClass('active');
     });
 
-    $('.btn-process').on('click', function (e) {
+    $(".btn-process").on('click', function (e) {
         e.preventDefault();
         $('.process-menu').toggleClass('active');
         $('.fade-body').toggleClass('d-block');
@@ -92,7 +97,26 @@ $(document).ready(function () {
                 $('.process-menu').removeClass('active');
                 $('.fade-body').removeClass('d-block');
             });
+            $("#payOptionView").show();
+            $("#keyInView").hide();
+            $("#swipeView").hide();
         }
+    });
+
+    $("#keyInOption").on('click', function () {
+        $("#payOptionView").fadeOut();
+        $("#keyInView").fadeIn();
+    });
+
+    $("#swipeOption").on('click', function () {
+        $("#payOptionView").fadeOut();
+        $("#swipeView").fadeIn();
+    });
+
+    $(".card-control").focus(function () {
+        $(this).parent().addClass("focused");
+    }).blur(function () {
+        $(this).parent().removeClass("focused");
     });
 });
 
