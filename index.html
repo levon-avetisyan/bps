@@ -5,20 +5,21 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
     <title>BPS Payform</title>
-    <script src="./js/vendor/jquery.min.js"></script>
-    <script src="./js/vendor/bootstrap.min.js"></script>
-    <script src="./js/vendor/simplebar.js"></script>
-    <script src="./js/vendor/jquery.easings.min.js"></script>
-    <script src="./js/vendor/scrolloverflow.js"></script>
-    <script src="./js/vendor/jquery.fullpage.js"></script>
-    <script src="./js/scripts.js"></script>
+    <script src="../build/js/vendor/jquery.min.js"></script>
+    <script src="../build/js/vendor/bootstrap.min.js"></script>
+    <script src="../build/js/vendor/simplebar.js"></script>
+    <script src="../build/js/vendor/jquery.easings.min.js"></script>
+    <script src="../build/js/vendor/scrolloverflow.js"></script>
+    <script src="../build/js/vendor/jquery.fullpage.js"></script>
+    <script src="../build/js/scripts.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
           integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Kanit:100,200,300,400,500,600,700" rel="stylesheet">
-    <link rel="stylesheet" href="./css/vendor/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/vendor/simplebar.css">
-    <link rel="stylesheet" href="./css/vendor/jquery.fullpage.css">
-    <link rel="stylesheet" href="./css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400" rel="stylesheet">
+    <link rel="stylesheet" href="../build/css/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="../build/css/vendor/simplebar.css">
+    <link rel="stylesheet" href="../build/css/vendor/jquery.fullpage.css">
+    <link rel="stylesheet" href="../build/css/main.css">
 </head>
 <body>
 
@@ -31,7 +32,7 @@
     </ul>
 </div>
 <div class="company-logo mb-5">
-    <img src="./img/logo.png" alt="Logo">
+    <img src="../build/img/logo.png" alt="Logo">
 </div>
 <div id="fullpage">
     <div data-anchor="amounts" class="section">
@@ -58,7 +59,7 @@
                             <h2><sup><i class="fas fa-dollar-sign"></i></sup>150</h2>
                         </div>
                     </div>
-                    <div class="amounts-container d-flex flex-row justify-content-center mb-5">
+                    <div class="amounts-container d-flex flex-row justify-content-center mb-3">
                         <div class="option-box amount-option mr-4 mr-sm-5">
                             <label for="amountXL">
                                 <input type="radio" value="$250.00" name="sponsorAmount" id="amountXL">
@@ -73,15 +74,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="other-amount-wrap d-flex justify-content-center align-items-center flex-column flex-sm-row">
-                    <label for="otherAmountInput">Other amount</label>
-                    <div class="control-wrap">
+                <div class="other-amount-wrap d-flex justify-content-center align-items-center flex-column">
+                    <label for="otherAmountInput" class="mb-3">Other amount</label>
+                    <div class="control-wrap d-flex flex-row align-items-center mb-5">
                         <input placeholder="0.00" step='0.01' id="otherAmountInput" type="number" min="0"
                                oninput="validity.valid||(value='');" class="form-control bps-input">
                         <i class="fas fa-dollar-sign"></i>
-                        <button id="confirmAmount" class="btn-confirm">Confirm</button>
                     </div>
-
+                    <button id="confirmAmount" class="btn-confirm">Confirm</button>
                 </div>
             </div>
         </div>
@@ -180,26 +180,80 @@
         </div>
     </div>
 </div>
+
 <div class="process-menu d-flex flex-column justify-content-center align-items-center">
-    <h1 class="text-center"><span class="total-amount">Total <b><span id="total">$0</span></b></span></h1>
-    <h1 class="text-center"><span class="total-amount">Today</span></h1>
-    <div class="payment-options-wrap mt-5">
-        <div class="payment-option mb-3">
-            <h2>Key in</h2>
-        </div>
-        <div class="payment-option">
-            <h2>Swipe</h2>
+    <div id="payOptionView">
+        <h1 class="text-center modal-title mb-5"><span class="total-amount">Total <b><span id="total">$0</span></b></span>
+            <br>Today</h1>
+        <div class="payment-options-wrap mt-4">
+            <div id="keyInOption" class="payment-option mb-3">
+                <h2>Key in</h2>
+            </div>
+            <div id="swipeOption" class="payment-option">
+                <h2>Swipe</h2>
+            </div>
         </div>
     </div>
+    <div id="keyInView">
+        <h1 class="text-center modal-title mb-5">Credit Card Details</h1>
+        <div class="form-wrap">
+            <form class="credit-card-form">
+                <div class="form-group">
+                    <label for="cardNumberInput" class="floating-label">Card Number</label>
+                    <input id="cardNumberInput" type="text" class="form-control card-control">
+                </div>
+                <div class="form-group row no-gutters">
+                    <div class="col pr-3">
+                        <label for="cardMonthInput" class="floating-label">Exp.Month</label>
+                        <input id="cardMonthInput" type="text" class="form-control card-control">
+                    </div>
+                    <div class="col pr-3">
+                        <label for="cardYearInput" class="floating-label">Exp.Year</label>
+                        <input id="cardYearInput" type="text" class="form-control card-control">
+                    </div>
+                    <div class="col">
+                        <label for="cardCvvInput" class="floating-label">CVV</label>
+                        <input id="cardCvvInput" type="text" class="form-control card-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="cardNameInput" class="floating-label">Name on Card</label>
+                    <input id="cardNameInput" type="text" class="form-control card-control">
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="swipeView">
+        <h1 class="text-center modal-title  mb-5">Swipe</h1>
+    </div>
 </div>
+
 <div class="fade-body"></div>
+
+<div id="scrollTop" class="scroll-top d-flex flex-column justify-content-center align-items-center">
+    <button class="btn-scroll-top mb-2">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+    START OVER
+</div>
+
+<div class="company-info">
+    <ul class="list-unstyled">
+        <li><img src="../build/img/email.png" alt="email icon">contact@placeholder.com</li>
+        <li><img src="../build/img/telephone.png" alt="email icon">1-800-0000-0000</li>
+    </ul>
+</div>
 
 <script>
     $(document).ready(function () {
         $('#fullpage').fullpage({
             anchors: ['amounts', 'durations', 'campaigns'],
             navigation: true,
-            normalScrollElements: '#freqSelect',
+            normalScrollElements: '#freqSelect'
+        });
+
+        $("#scrollTop").on("click",function(){
+            $.fn.fullpage.moveTo('amounts', 1);
         });
     });
 </script>
@@ -207,7 +261,7 @@
     <div class="container">
         <div class="footer-content d-flex justify-content-center">
             <div class="footer-logo">
-                <img src="./img/banquest.png" alt="Powered by Banquest">
+                <img src="../build/img/banquest.png" alt="Powered by Banquest">
             </div>
         </div>
     </div>
