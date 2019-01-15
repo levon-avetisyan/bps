@@ -2,6 +2,7 @@
 'use strict';
 
 var $ = require('jQuery');
+
 $(window).on('load', function () {
     $("#payOptionView").show();
     $("#keyInView").hide();
@@ -46,6 +47,8 @@ $(document).ready(function () {
         setTimeout("window.location = \"#durations\"", 200);
     });
 
+    $("#freqSelect li").addClass("disabled");
+
     $("#freqSelect li").click(function () {
         $("li").removeClass("active");
         $(this).addClass("active");
@@ -57,6 +60,7 @@ $(document).ready(function () {
         $('input:radio[name=' + $(this).attr('name') + ']').parent().parent().removeClass('active');
         $(this).parent().parent().addClass('active');
         $('#durationSelected').html($(this).val());
+        $("#freqSelect li").removeClass("disabled");
         if (value === 'once') {
             $("#durationTimes").html("Ongoing");
             $("#freqSelect li[class='active']").removeClass();
@@ -118,6 +122,21 @@ $(document).ready(function () {
     }).blur(function () {
         $(this).parent().removeClass("focused");
     });
+
+    $("#scrollTop").on('click', function () {
+        $("input[name='sponsorAmount']").prop('checked', false).parent().parent().removeClass('active');
+        $("input[name='duration']").prop('checked', false).parent().parent().removeClass('active');
+        $("input[name='campaign']").prop('checked', false).parent().parent().removeClass('active');
+        $('#otherAmountInput').val(' ');
+        $('#amountSelected,#total,#durationSelected,#durationTimes,#campaignSelected').html("--");
+    });
+
+    $("#keyInBack").on('click', function () {
+        $("#keyInView").fadeOut();
+        $("#payOptionView").fadeIn();
+    });
+
+    $("#keyInProcess").on('click', function () {});
 });
 
 },{"jQuery":2}],2:[function(require,module,exports){

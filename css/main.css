@@ -2838,8 +2838,8 @@ readers do not read off random characters that represent icons */
   font-family: 'Font Awesome 5 Brands';
   font-style: normal;
   font-weight: normal;
-  src: url("../../prod/webfonts/fa-brands-400.eot");
-  src: url("../../prod/webfonts/fa-brands-400.eot?#iefix") format("embedded-opentype"), url("../../prod/webfonts/fa-brands-400.woff2") format("woff2"), url("../../prod/webfonts/fa-brands-400.woff") format("woff"), url("../../prod/webfonts/fa-brands-400.ttf") format("truetype"), url("../../prod/webfonts/fa-brands-400.svg#fontawesome") format("svg"); }
+  src: url("../webfonts/fa-brands-400.eot");
+  src: url("../webfonts/fa-brands-400.eot?#iefix") format("embedded-opentype"), url("../webfonts/fa-brands-400.woff2") format("woff2"), url("../webfonts/fa-brands-400.woff") format("woff"), url("../webfonts/fa-brands-400.ttf") format("truetype"), url("../webfonts/fa-brands-400.svg#fontawesome") format("svg"); }
 
 .fab {
   font-family: 'Font Awesome 5 Brands'; }
@@ -2852,8 +2852,8 @@ readers do not read off random characters that represent icons */
   font-family: 'Font Awesome 5 Free';
   font-style: normal;
   font-weight: 900;
-  src: url("../../prod/webfonts/fa-solid-900.eot");
-  src: url("../../prod/webfonts/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("../../prod/webfonts/fa-solid-900.woff2") format("woff2"), url("../../prod/webfonts/fa-solid-900.woff") format("woff"), url("../../prod/webfonts/fa-solid-900.ttf") format("truetype"), url("../../prod/webfonts/fa-solid-900.svg#fontawesome") format("svg"); }
+  src: url("../webfonts/fa-solid-900.eot");
+  src: url("../webfonts/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("../webfonts/fa-solid-900.woff2") format("woff2"), url("../webfonts/fa-solid-900.woff") format("woff"), url("../webfonts/fa-solid-900.ttf") format("truetype"), url("../webfonts/fa-solid-900.svg#fontawesome") format("svg"); }
 
 .fa,
 .fas {
@@ -2868,8 +2868,8 @@ readers do not read off random characters that represent icons */
   font-family: 'Font Awesome 5 Free';
   font-style: normal;
   font-weight: 400;
-  src: url("../../prod/webfonts/fa-regular-400.eot");
-  src: url("../../prod/webfonts/fa-regular-400.eot?#iefix") format("embedded-opentype"), url("../../prod/webfonts/fa-regular-400.woff2") format("woff2"), url("../../prod/webfonts/fa-regular-400.woff") format("woff"), url("../../prod/webfonts/fa-regular-400.ttf") format("truetype"), url("../../prod/webfonts/fa-regular-400.svg#fontawesome") format("svg"); }
+  src: url("../webfonts/fa-regular-400.eot");
+  src: url("../webfonts/fa-regular-400.eot?#iefix") format("embedded-opentype"), url("../webfonts/fa-regular-400.woff2") format("woff2"), url("../webfonts/fa-regular-400.woff") format("woff"), url("../webfonts/fa-regular-400.ttf") format("truetype"), url("../webfonts/fa-regular-400.svg#fontawesome") format("svg"); }
 
 .far {
   font-family: 'Font Awesome 5 Free';
@@ -2979,9 +2979,9 @@ footer {
   left: 0;
   border-top: 1px solid #ececec;
   background-color: white;
-  padding: 10px 0; }
+  padding: 4px 0; }
   footer .footer-content .footer-logo {
-    width: 140px; }
+    width: 120px; }
     footer .footer-content .footer-logo img {
       width: 100%; }
 
@@ -2989,7 +2989,8 @@ footer {
   footer {
     padding: 4px 0; }
     footer .footer-content .footer-logo {
-      width: 120px; } }
+      width: 120px;
+      cursor: pointer; } }
 
 html {
   height: 100%;
@@ -3020,10 +3021,13 @@ input.bps-input {
 h1.section-title {
   font-weight: 300;
   font-size: 34px;
-  font-family: 'Montserrat', sans-serif; }
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 8vh;
+  margin-top: 3vh; }
 
 .company-logo {
-  padding-top: 30px;
+  padding-top: 20px;
+  padding-bottom: 10px;
   width: 100%;
   background-color: white;
   position: fixed;
@@ -3045,7 +3049,7 @@ h1.section-title {
       -ms-flex-align: center;
           align-items: center; }
   .company-logo img {
-    width: 300px; }
+    width: 240px; }
 
 .selected-options {
   position: absolute;
@@ -3136,7 +3140,7 @@ h1.section-title {
     .option-box.duration-option.disabled {
       background-color: #E5E5E5;
       border: 1px solid #E5E5E5;
-      color: white;
+      color: #5a6268;
       -webkit-box-shadow: none;
               box-shadow: none; }
       .option-box.duration-option.disabled label {
@@ -3157,7 +3161,7 @@ h1.section-title {
       font-size: 24px;
       color: black;
       line-height: 18px;
-      height: 65px;
+      height: 58px;
       border-radius: 40px; }
     .other-amount-wrap .control-wrap i.fa-dollar-sign {
       font-size: 22px;
@@ -3167,60 +3171,52 @@ h1.section-title {
       top: 50%;
       -webkit-transform: translateY(-50%);
               transform: translateY(-50%); }
+    .other-amount-wrap .control-wrap button.btn-confirm {
+      border: none;
+      -webkit-transition: 0.5s;
+      transition: 0.5s;
+      color: white;
+      font-size: 20px;
+      font-weight: 300;
+      bottom: 0;
+      border-radius: 40px;
+      position: absolute;
+      right: 0;
+      height: 100%;
+      padding: 0 30px;
+      cursor: pointer;
+      background-size: 200% auto;
+      background-image: -webkit-gradient(linear, left top, right top, from(#232526), color-stop(51%, #414345), to(#232526));
+      background-image: linear-gradient(to right, #232526 0%, #414345 51%, #232526 100%); }
+      .other-amount-wrap .control-wrap button.btn-confirm:hover {
+        background-position: right center; }
+      .other-amount-wrap .control-wrap button.btn-confirm.disabled {
+        pointer-events: none;
+        opacity: 0.6; }
+      .other-amount-wrap .control-wrap button.btn-confirm:focus {
+        outline: none;
+        background-color: #2a2b2d; }
+      .other-amount-wrap .control-wrap button.btn-confirm:active {
+        border: 2px solid #2a2b2d;
+        background-color: white;
+        color: #2a2b2d;
+        opacity: 0.8; }
   .other-amount-wrap label {
+    margin-bottom: 0;
     white-space: nowrap;
     padding-right: 30px;
     font-size: 24px;
     font-weight: 300; }
-  .other-amount-wrap button.btn-confirm {
-    border: none;
-    -webkit-transition: 0.5s;
-    transition: 0.5s;
-    color: white;
-    font-size: 20px;
-    font-weight: 300;
-    bottom: 0;
-    border-radius: 40px;
-    height: 46px;
-    padding: 0 30px;
-    cursor: pointer;
-    background-size: 200% auto;
-    background-image: -webkit-gradient(linear, left top, right top, from(#232526), color-stop(51%, #414345), to(#232526));
-    background-image: linear-gradient(to right, #232526 0%, #414345 51%, #232526 100%); }
-    .other-amount-wrap button.btn-confirm:hover {
-      background-position: right center; }
-    .other-amount-wrap button.btn-confirm.disabled {
-      pointer-events: none;
-      opacity: 0.6; }
-    .other-amount-wrap button.btn-confirm:focus {
-      outline: none;
-      background-color: #2a2b2d; }
-    .other-amount-wrap button.btn-confirm:active {
-      border: 2px solid #2a2b2d;
-      background-color: white;
-      color: #2a2b2d;
-      opacity: 0.8; }
 
 .fp-tableCell {
   vertical-align: top;
   padding-top: 15vh; }
-
-.amounts .amounts-options {
-  margin-bottom: 5vh; }
-
-.amounts h1 {
-  margin-bottom: 10vh; }
-
-.duration h1 {
-  margin-bottom: 10vh; }
 
 .duration .duration-option {
   height: 100px; }
 
 .campaign {
   margin-bottom: 20vh; }
-  .campaign h1 {
-    margin-bottom: 10vh; }
 
 .freq-select {
   max-height: 200px;
@@ -3343,7 +3339,7 @@ h1.section-title {
   margin: 20px auto;
   width: 30%;
   min-width: 460px;
-  height: 500px;
+  height: 400px;
   background-color: white;
   padding: 15px;
   opacity: 0;
@@ -3357,8 +3353,8 @@ h1.section-title {
       font-weight: 300; }
   .process-menu.active {
     opacity: 1;
-    -webkit-transform: translate(-50%, 30%);
-            transform: translate(-50%, 30%); }
+    -webkit-transform: translate(-50%, 5%);
+            transform: translate(-50%, 5%); }
     .process-menu.active h1 {
       color: #2a2b2d;
       -webkit-transition: all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -3420,7 +3416,7 @@ h1.section-title {
 
 .scroll-top {
   position: fixed;
-  bottom: 80px;
+  bottom: 60px;
   left: 30px;
   cursor: pointer;
   font-family: 'Montserrat', sans-serif;
@@ -3462,8 +3458,10 @@ h1.section-title {
   right: 30px;
   bottom: 60px;
   font-family: 'Montserrat', sans-serif; }
-  .company-info ul li img {
-    margin-right: 10px; }
+  .company-info ul {
+    margin-bottom: 0; }
+    .company-info ul li img {
+      margin-right: 10px; }
 
 #swipeView, #keyInView, #payOptionView {
   padding: 20px;
@@ -3502,7 +3500,8 @@ h1.section-title {
 .form-wrap {
   padding: 0 30px; }
   .form-wrap .credit-card-form .form-group {
-    position: relative; }
+    position: relative;
+    margin-bottom: 24px; }
 
 .floating-label {
   position: absolute;
@@ -3535,11 +3534,56 @@ h1.section-title {
           box-shadow: none;
   border: 1px solid #2a2b2d; }
 
+.btn-secondary-action {
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  font-weight: 300;
+  color: #2a2b2d;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 0; }
+  .btn-secondary-action:before {
+    content: '';
+    height: 1px;
+    background-color: #2a2b2d;
+    position: absolute;
+    bottom: 4px;
+    left: 0;
+    right: 100%;
+    -webkit-transition: right 0.3s ease;
+    transition: right 0.3s ease; }
+  .btn-secondary-action:focus {
+    outline: none; }
+  .btn-secondary-action:hover:before {
+    right: 0; }
+
+.btn-primary-action {
+  background-color: transparent;
+  border: 1px solid #2a2b2d;
+  color: #2a2b2d;
+  border-radius: 18px;
+  padding: 0 14px;
+  height: 36px;
+  line-height: 32px;
+  font-weight: 300;
+  font-size: 20px;
+  cursor: pointer;
+  -webkit-transition: background-color 0.3s ease, color 0.6s ease;
+  transition: background-color 0.3s ease, color 0.6s ease; }
+  .btn-primary-action:hover {
+    background-color: #2a2b2d;
+    color: white; }
+  .btn-primary-action:focus {
+    outline: none; }
+
 @media (max-width: 575px) {
   #fp-nav.right {
     right: 0; }
   .amounts, .duration, .campaign {
-    padding-top: 7vh; }
+    padding-top: 1vh; }
     .amounts h1, .duration h1, .campaign h1 {
       margin-bottom: 6vh; }
     .amounts .container, .duration .container, .campaign .container {
@@ -3575,8 +3619,6 @@ h1.section-title {
     padding: 0 15px; }
     .selected-options ul.selected-options-list li {
       font-size: 19px; }
-  .other-amount-wrap label {
-    margin-bottom: 10px; }
   .other-amount-wrap .control-wrap {
     max-width: 250px; }
   .other-amount-wrap .control-wrap i.fa-dollar-sign {
@@ -3586,10 +3628,13 @@ h1.section-title {
     height: 40px;
     font-size: 20px;
     padding-top: 2px;
-    padding-bottom: 2px; }
-  .other-amount-wrap button.btn-confirm {
+    padding-bottom: 2px;
+    display: block; }
+  .other-amount-wrap .control-wrap button.btn-confirm {
     height: 40px;
-    font-size: 18px; }
+    font-size: 18px;
+    position: static;
+    display: block; }
   .duration .duration-option {
     height: 60px;
     font-size: 20px; }
@@ -3609,7 +3654,13 @@ h1.section-title {
   .btn-process {
     font-size: 22px;
     line-height: 37px;
-    height: 42px; } }
+    height: 42px; }
+  .process-menu {
+    min-width: 85%; }
+    .process-menu .modal-title {
+      font-size: 28px; }
+    .process-menu #keyInView .form-wrap {
+      padding: 0; } }
 
 @media (min-width: 768px) {
   .amounts .container, .duration .container, .campaign .container {

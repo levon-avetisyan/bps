@@ -31,7 +31,7 @@
         <li class="list-inline-item" id="campaignSelected">--</li>
     </ul>
 </div>
-<div class="company-logo mb-5">
+<div class="company-logo">
     <img src="./img/logo.png" alt="Logo">
 </div>
 <div id="fullpage">
@@ -39,15 +39,15 @@
         <div class="amounts">
             <div class="container">
                 <h1 class="text-center section-title">Choose Amount</h1>
-                <div class="amounts-options">
-                    <div class="amounts-container d-flex flex-row justify-content-center mb-4 mb-sm-5">
-                        <div class="option-box amount-option mr-4 mr-sm-5">
+                <div class="amounts-options mb-xl-5">
+                    <div class="amounts-container d-flex flex-row justify-content-center mb-3 mb-xl-5">
+                        <div class="option-box amount-option mr-4 mr-xl-5">
                             <label for="amountXS">
                                 <input type="radio" value="$50.00" name="sponsorAmount" id="amountXS">
                             </label>
                             <h2><sup><i class="fas fa-dollar-sign"></i></sup>50</h2>
                         </div>
-                        <div class="option-box amount-option mr-4 mr-sm-5">
+                        <div class="option-box amount-option mr-4 mr-xl-5">
                             <label for="amountSM">
                                 <input type="radio" value="$100.00" name="sponsorAmount" id="amountSM">
                             </label>
@@ -60,7 +60,7 @@
                         </div>
                     </div>
                     <div class="amounts-container d-flex flex-row justify-content-center mb-3">
-                        <div class="option-box amount-option mr-4 mr-sm-5">
+                        <div class="option-box amount-option mr-4 mr-xl-5">
                             <label for="amountXL">
                                 <input type="radio" value="$250.00" name="sponsorAmount" id="amountXL">
                             </label>
@@ -74,14 +74,16 @@
                         </div>
                     </div>
                 </div>
-                <div class="other-amount-wrap d-flex justify-content-center align-items-center flex-column">
-                    <label for="otherAmountInput" class="mb-3">Other amount</label>
-                    <div class="control-wrap d-flex flex-row align-items-center mb-5">
-                        <input placeholder="0.00" step='0.01' id="otherAmountInput" type="number" min="0"
-                               oninput="validity.valid||(value='');" class="form-control bps-input">
-                        <i class="fas fa-dollar-sign"></i>
+                <div class="other-amount-wrap mt-4 d-flex flex-column flex-sm-row justify-content-center align-items-center">
+                    <label for="otherAmountInput" class="pr-0 pr-sm-4 mb-3 mb-sm-0">Other amount</label>
+                    <div class="control-wrap d-flex flex-column flex-sm-row align-items-center">
+                        <div class="input-wrap position-relative mb-3 mb-sm-0">
+                            <input placeholder="0.00" step='0.01' id="otherAmountInput" type="number" min="0"
+                                   oninput="validity.valid||(value='');" class="form-control bps-input">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <button id="confirmAmount" class="btn-confirm">Confirm</button>
                     </div>
-                    <button id="confirmAmount" class="btn-confirm">Confirm</button>
                 </div>
             </div>
         </div>
@@ -180,12 +182,10 @@
         </div>
     </div>
 </div>
-
 <div class="process-menu d-flex flex-column justify-content-center align-items-center">
     <div id="payOptionView">
-        <h1 class="text-center modal-title mb-5"><span class="total-amount">Total <b><span id="total">$0</span></b></span>
-            <br>Today</h1>
-        <div class="payment-options-wrap mt-4">
+        <h1 class="text-center modal-title mb-5"><span class="total-amount">Total <b><span id="total">$0</span></b></span> Today</h1>
+        <div class="payment-options-wrap">
             <div id="keyInOption" class="payment-option mb-3">
                 <h2>Key in</h2>
             </div>
@@ -212,13 +212,21 @@
                         <input id="cardYearInput" type="text" class="form-control card-control">
                     </div>
                     <div class="col">
-                        <label for="cardCvvInput" class="floating-label">CVV</label>
-                        <input id="cardCvvInput" type="text" class="form-control card-control">
+                        <label for="cardZipInput" class="floating-label">Zip</label>
+                        <input id="cardZipInput" type="text" class="form-control card-control">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="cardNameInput" class="floating-label">Name on Card</label>
                     <input id="cardNameInput" type="text" class="form-control card-control">
+                </div>
+                <div class="form-actions d-flex justify-content-center align-items-center mt-5">
+                    <button id="keyInBack" class="btn-secondary-action mr-3">
+                        Back
+                    </button>
+                    <button id="keyInProcess" class="btn-primary-action">
+                        Process
+                    </button>
                 </div>
             </form>
         </div>
@@ -227,17 +235,14 @@
         <h1 class="text-center modal-title  mb-5">Swipe</h1>
     </div>
 </div>
-
 <div class="fade-body"></div>
-
 <div id="scrollTop" class="scroll-top d-flex flex-column justify-content-center align-items-center">
     <button class="btn-scroll-top mb-2">
         <i class="fas fa-chevron-up"></i>
     </button>
-    START OVER
+    <span class="d-none d-sm-block">START OVER</span>
 </div>
-
-<div class="company-info">
+<div class="company-info text-center text-sm-left">
     <ul class="list-unstyled">
         <li><img src="./img/email.png" alt="email icon">contact@placeholder.com</li>
         <li><img src="./img/telephone.png" alt="email icon">1-800-0000-0000</li>
@@ -260,9 +265,9 @@
 <footer>
     <div class="container">
         <div class="footer-content d-flex justify-content-center">
-            <div class="footer-logo">
+            <a href="https://www.banquest.com" class="d-block footer-logo">
                 <img src="./img/banquest.png" alt="Powered by Banquest">
-            </div>
+            </a>
         </div>
     </div>
 </footer>
