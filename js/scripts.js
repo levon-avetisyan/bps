@@ -121,6 +121,9 @@ $(document).ready(function () {
         $(this).parent().addClass("focused");
     }).blur(function () {
         $(this).parent().removeClass("focused");
+        if ($(this).val()) {
+            $(this).parent().addClass("focused");
+        }
     });
 
     $("#scrollTop").on('click', function () {
@@ -135,8 +138,6 @@ $(document).ready(function () {
         $("#keyInView").fadeOut();
         $("#payOptionView").fadeIn();
     });
-
-    $("#keyInProcess").on('click', function () {});
 });
 
 },{"jQuery":2}],2:[function(require,module,exports){

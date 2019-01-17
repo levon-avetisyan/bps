@@ -2979,7 +2979,7 @@ footer {
   left: 0;
   border-top: 1px solid #ececec;
   background-color: white;
-  padding: 4px 0; }
+  padding: 8px 0; }
   footer .footer-content .footer-logo {
     width: 120px; }
     footer .footer-content .footer-logo img {
@@ -2987,7 +2987,7 @@ footer {
 
 @media (max-width: 575px) {
   footer {
-    padding: 4px 0; }
+    padding: 6px 0; }
     footer .footer-content .footer-logo {
       width: 120px;
       cursor: pointer; } }
@@ -3150,12 +3150,28 @@ h1.section-title {
     width: 208px;
     font-size: 24px; }
 
+.ui-keyboard-input-current {
+  -webkit-box-shadow: 0 0 5px #dad8d8;
+          box-shadow: 0 0 5px #dad8d8; }
+
+.ui-keyboard .ui-keyboard-button {
+  font-size: 18px;
+  font-weight: 300; }
+  .ui-keyboard .ui-keyboard-button:hover, .ui-keyboard .ui-keyboard-button:focus, .ui-keyboard .ui-keyboard-button:active {
+    background-color: #2a2b2d;
+    color: white;
+    border: #2a2b2d; }
+
 .other-amount-wrap {
   max-width: 500px;
   margin: 0 auto;
   position: relative; }
   .other-amount-wrap .control-wrap {
     position: relative; }
+    .other-amount-wrap .control-wrap .ui-keyboard {
+      top: -300px;
+      left: 0;
+      right: 0; }
     .other-amount-wrap .control-wrap input {
       padding-left: 40px;
       font-size: 24px;
@@ -3416,7 +3432,8 @@ h1.section-title {
 
 .scroll-top {
   position: fixed;
-  bottom: 60px;
+  bottom: 14px;
+  z-index: 10;
   left: 30px;
   cursor: pointer;
   font-family: 'Montserrat', sans-serif;
@@ -3425,14 +3442,16 @@ h1.section-title {
   .scroll-top:hover button {
     -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
             box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
+  .scroll-top span {
+    font-size: 15px; }
   .scroll-top button.btn-scroll-top {
     -webkit-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     background-color: white;
     border: 2px solid #2a2b2d;
     border-radius: 50%;
-    width: 34px;
-    height: 34px;
+    width: 30px;
+    height: 30px;
     padding: 0;
     position: relative;
     cursor: pointer;
@@ -3456,12 +3475,15 @@ h1.section-title {
 .company-info {
   position: fixed;
   right: 30px;
-  bottom: 60px;
+  bottom: 8px;
+  z-index: 100;
   font-family: 'Montserrat', sans-serif; }
   .company-info ul {
     margin-bottom: 0; }
-    .company-info ul li img {
-      margin-right: 10px; }
+    .company-info ul li {
+      font-size: 15px; }
+      .company-info ul li img {
+        margin-right: 10px; }
 
 #swipeView, #keyInView, #payOptionView {
   padding: 20px;

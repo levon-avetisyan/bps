@@ -11,6 +11,7 @@
     <script src="./js/vendor/jquery.easings.min.js"></script>
     <script src="./js/vendor/scrolloverflow.js"></script>
     <script src="./js/vendor/jquery.fullpage.js"></script>
+    <script src="./js/vendor/jquery.keyboard.js"></script>
     <script src="./js/scripts.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
           integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
@@ -19,6 +20,7 @@
     <link rel="stylesheet" href="./css/vendor/bootstrap.min.css">
     <link rel="stylesheet" href="./css/vendor/simplebar.css">
     <link rel="stylesheet" href="./css/vendor/jquery.fullpage.css">
+    <link rel="stylesheet" href="./css/vendor/keyboard.min.css">
     <link rel="stylesheet" href="./css/main.css">
 </head>
 <body>
@@ -76,7 +78,7 @@
                 </div>
                 <div class="other-amount-wrap mt-4 d-flex flex-column flex-sm-row justify-content-center align-items-center">
                     <label for="otherAmountInput" class="pr-0 pr-sm-4 mb-3 mb-sm-0">Other amount</label>
-                    <div class="control-wrap d-flex flex-column flex-sm-row align-items-center">
+                    <div class="vk-wrap control-wrap d-flex flex-column flex-sm-row align-items-center">
                         <div class="input-wrap position-relative mb-3 mb-sm-0">
                             <input placeholder="0.00" step='0.01' id="otherAmountInput" type="number" min="0"
                                    oninput="validity.valid||(value='');" class="form-control bps-input">
@@ -184,7 +186,8 @@
 </div>
 <div class="process-menu d-flex flex-column justify-content-center align-items-center">
     <div id="payOptionView">
-        <h1 class="text-center modal-title mb-5"><span class="total-amount">Total <b><span id="total">$0</span></b></span> Today</h1>
+        <h1 class="text-center modal-title mb-5"><span class="total-amount">Total <b><span
+                            id="total">$0</span></b></span> Today</h1>
         <div class="payment-options-wrap">
             <div id="keyInOption" class="payment-option mb-3">
                 <h2>Key in</h2>
@@ -199,21 +202,29 @@
         <div class="form-wrap">
             <form class="credit-card-form">
                 <div class="form-group">
-                    <label for="cardNumberInput" class="floating-label">Card Number</label>
-                    <input id="cardNumberInput" type="text" class="form-control card-control">
+                    <div class="">
+                        <label for="cardNumberInput" class="floating-label">Card Number</label>
+                        <input id="cardNumberInput" type="text" class="form-control card-control">
+                    </div>
                 </div>
                 <div class="form-group row no-gutters">
                     <div class="col pr-3">
-                        <label for="cardMonthInput" class="floating-label">Exp.Month</label>
-                        <input id="cardMonthInput" type="text" class="form-control card-control">
+                        <div class="">
+                            <label for="cardMonthInput" class="floating-label">Exp.Month</label>
+                            <input id="cardMonthInput" type="text" class="form-control card-control">
+                        </div>
                     </div>
                     <div class="col pr-3">
-                        <label for="cardYearInput" class="floating-label">Exp.Year</label>
-                        <input id="cardYearInput" type="text" class="form-control card-control">
+                        <div class="">
+                            <label for="cardYearInput" class="floating-label">Exp.Year</label>
+                            <input id="cardYearInput" type="text" class="form-control card-control">
+                        </div>
                     </div>
                     <div class="col">
-                        <label for="cardZipInput" class="floating-label">Zip</label>
-                        <input id="cardZipInput" type="text" class="form-control card-control">
+                        <div class="">
+                            <label for="cardZipInput" class="floating-label">Zip</label>
+                            <input id="cardZipInput" type="text" class="form-control card-control">
+                        </div>
                     </div>
                 </div>
                 <div class="form-group">
@@ -236,11 +247,11 @@
     </div>
 </div>
 <div class="fade-body"></div>
-<div id="scrollTop" class="scroll-top d-flex flex-column justify-content-center align-items-center">
-    <button class="btn-scroll-top mb-2">
+<div id="scrollTop" class="scroll-top d-flex flex-row justify-content-center align-items-center">
+    <button class="btn-scroll-top">
         <i class="fas fa-chevron-up"></i>
     </button>
-    <span class="d-none d-sm-block">START OVER</span>
+    <span class="d-none d-sm-block ml-2">START OVER</span>
 </div>
 <div class="company-info text-center text-sm-left">
     <ul class="list-unstyled">
@@ -251,14 +262,71 @@
 
 <script>
     $(document).ready(function () {
-        $('#fullpage').fullpage({
+        $("#fullpage").fullpage({
             anchors: ['amounts', 'durations', 'campaigns'],
             navigation: true,
             normalScrollElements: '#freqSelect'
         });
-
-        $("#scrollTop").on("click",function(){
+        $("#scrollTop").on("click", function () {
             $.fn.fullpage.moveTo('amounts', 1);
+        });
+        $("#otherAmountInput, #cardNumberInput, #cardMonthInput, #cardYearInput, #cardZipInput").keyboard({
+            layout: "num",
+            appendLocally:true,
+            // appendTo: '.vk-wrap',
+            visible: function (e, keyboard, el) {
+                keyboard.$el.parent().addClass("focused");
+            },
+            beforeClose: function (e, keyboard, el, accepted) {
+                if (!$(this).val()) {
+                    $(this).parent().removeClass("focused");
+                }
+            },
+            css: {
+                // input & preview
+                input: 'form-control input-sm',
+                // keyboard container
+                container: 'center-block dropdown-menu',
+                // jumbotron
+                // default state
+                buttonDefault: 'btn btn-default',
+                // hovered button
+                buttonHover: 'btn-primary',
+                // Action keys (e.g. Accept, Cancel, Tab, etc);
+                // this replaces "actionClass" option
+                buttonAction: 'active',
+                // used when disabling the decimal button {dec}
+                // when a decimal exists in the input area
+                buttonDisabled: 'disabled'
+            }
+        });
+        $("#cardNameInput").keyboard({
+            appendLocally:true,
+            visible: function (e, keyboard, el) {
+                keyboard.$el.parent().addClass("focused");
+            },
+            beforeClose: function (e, keyboard, el, accepted) {
+                if (!$(this).val()) {
+                    $(this).parent().removeClass("focused");
+                }
+            },
+            css: {
+                // input & preview
+                input: 'form-control input-sm',
+                // keyboard container
+                container: 'center-block dropdown-menu',
+                // jumbotron
+                // default state
+                buttonDefault: 'btn btn-default',
+                // hovered button
+                buttonHover: 'btn-primary',
+                // Action keys (e.g. Accept, Cancel, Tab, etc);
+                // this replaces "actionClass" option
+                buttonAction: 'active',
+                // used when disabling the decimal button {dec}
+                // when a decimal exists in the input area
+                buttonDisabled: 'disabled'
+            }
         });
     });
 </script>
