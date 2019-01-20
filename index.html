@@ -151,13 +151,13 @@
             <div class="container">
                 <h1 class="text-center section-title">Campaign</h1>
                 <div class="d-flex flex-column flex-sm-row justify-content-center align-items-center">
-                    <div class="option-box campaign-option mb-4 mb-sm-0 mr-sm-5">
+                    <div class="option-box campaign-option mb-4 mb-sm-0 mr-sm-4 mr-md-5">
                         <label for="camp1">
                             <input type="radio" value="Campaign 1" name="campaign" id="camp1">
                         </label>
                         Campaign 1
                     </div>
-                    <div class="option-box campaign-option mb-4 mb-sm-0 mr-sm-5">
+                    <div class="option-box campaign-option mb-4 mb-sm-0 mr-sm-4 mr-md-5">
                         <label for="camp2">
                             <input type="radio" value="Campaign 2" name="campaign" id="camp2">
                         </label>
@@ -208,20 +208,20 @@
                     </div>
                 </div>
                 <div class="form-group row no-gutters">
-                    <div class="col pr-3">
+                    <div class="col pr-2 pr-sm-3">
                         <div class="">
                             <label for="cardMonthInput" class="floating-label">Exp.Month</label>
                             <input id="cardMonthInput" type="text" class="form-control card-control">
                         </div>
                     </div>
-                    <div class="col pr-3">
+                    <div class="col pr-2 pr-sm-3">
                         <div class="">
                             <label for="cardYearInput" class="floating-label">Exp.Year</label>
                             <input id="cardYearInput" type="text" class="form-control card-control">
                         </div>
                     </div>
                     <div class="col">
-                        <div class="">
+                        <div class="zip-code-wrap">
                             <label for="cardZipInput" class="floating-label">Zip</label>
                             <input id="cardZipInput" type="text" class="form-control card-control">
                         </div>
@@ -247,19 +247,27 @@
     </div>
 </div>
 <div class="fade-body"></div>
-<div id="scrollTop" class="scroll-top d-flex flex-row justify-content-center align-items-center">
-    <button class="btn-scroll-top">
-        <i class="fas fa-chevron-up"></i>
-    </button>
-    <span class="d-none d-sm-block ml-2">START OVER</span>
-</div>
-<div class="company-info text-center text-sm-left">
-    <ul class="list-unstyled">
-        <li><img src="./img/email.png" alt="email icon">contact@placeholder.com</li>
-        <li><img src="./img/telephone.png" alt="email icon">1-800-0000-0000</li>
-    </ul>
-</div>
-
+<footer>
+        <div class="footer-content w-100 px-3 d-flex justify-content-between align-items-center">
+            <div id="scrollTop" class="scroll-top d-flex flex-row justify-content-center align-items-center">
+                <button class="btn-scroll-top">
+                    <i class="fas fa-chevron-up"></i>
+                </button>
+                <span class="d-none d-sm-block ml-2">START OVER</span>
+            </div>
+            <div class="footer-logo-wrap">
+                <a href="https://www.banquest.com" class="d-block footer-logo">
+                    <img src="./img/banquest.png" alt="Powered by Banquest">
+                </a>
+            </div>
+            <div class="company-info">
+                <ul class="list-unstyled">
+                    <li><img src="./img/email.png" alt="email icon">contact@placeholder.com</li>
+                    <li><img src="./img/telephone.png" alt="email icon">1-800-0000-0000</li>
+                </ul>
+            </div>
+        </div>
+</footer>
 <script>
     $(document).ready(function () {
         $("#fullpage").fullpage({
@@ -271,9 +279,9 @@
             $.fn.fullpage.moveTo('amounts', 1);
         });
         $("#otherAmountInput, #cardNumberInput, #cardMonthInput, #cardYearInput, #cardZipInput").keyboard({
-            layout: "num",
             appendLocally:true,
-            // appendTo: '.vk-wrap',
+            layout : 'custom',
+            customLayout: { 'normal': ['1 2 3', '4 5 6', '7 8 9','{b} 0 .','{prev} {next}','{accept} {cancel}'] },
             visible: function (e, keyboard, el) {
                 keyboard.$el.parent().addClass("focused");
             },
@@ -298,10 +306,19 @@
                 // used when disabling the decimal button {dec}
                 // when a decimal exists in the input area
                 buttonDisabled: 'disabled'
+            },
+            switchInput : function(keyboard, goToNext, isAccepted){
+                keyboard.accept();
+                var all = $('.ui-keyboard-input:not(.ui-keyboard-preview)'),
+                    indx = all.index(keyboard.$el) + (goToNext ? 1 : -1);
+                if (indx > all.length - 1) { indx = 0; }
+                all.eq(indx).focus();
             }
         });
         $("#cardNameInput").keyboard({
             appendLocally:true,
+            layout : 'custom',
+            customLayout:{'normal' : ['` 1 2 3 4 5 6 7 8 9 0 - = {bksp}', '{tab} q w e r t y u i o p [ ] \\', 'a s d f g h j k l ; \' {enter}','{shift} z x c v b n m , . / {shift}','{accept} {space} {cancel} {prev} {next}']},
             visible: function (e, keyboard, el) {
                 keyboard.$el.parent().addClass("focused");
             },
@@ -326,18 +343,16 @@
                 // used when disabling the decimal button {dec}
                 // when a decimal exists in the input area
                 buttonDisabled: 'disabled'
+            },
+            switchInput : function(keyboard, goToNext, isAccepted){
+                keyboard.accept();
+                var all = $('.ui-keyboard-input:not(.ui-keyboard-preview)'),
+                    indx = all.index(keyboard.$el) + (goToNext ? 1 : -1);
+                if (indx > all.length - 1) { indx = 0; }
+                all.eq(indx).focus();
             }
         });
     });
 </script>
-<footer>
-    <div class="container">
-        <div class="footer-content d-flex justify-content-center">
-            <a href="https://www.banquest.com" class="d-block footer-logo">
-                <img src="./img/banquest.png" alt="Powered by Banquest">
-            </a>
-        </div>
-    </div>
-</footer>
 </body>
 </html>
