@@ -92,6 +92,10 @@ $(document).ready(function () {
         $(this).parent().parent().addClass('active');
     });
 
+    var cleanCreditCardFields = function cleanCreditCardFields() {
+        $('.credit-card-form :input').val('').blur();;
+    };
+
     $(".btn-process").on('click', function (e) {
         e.preventDefault();
         $('.process-menu').toggleClass('active');
@@ -100,10 +104,12 @@ $(document).ready(function () {
             $('.fade-body').on('click', function () {
                 $('.process-menu').removeClass('active');
                 $('.fade-body').removeClass('d-block');
+                cleanCreditCardFields();
             });
             $("#payOptionView").show();
             $("#keyInView").hide();
             $("#swipeView").hide();
+            cleanCreditCardFields();
         }
     });
 
@@ -136,6 +142,16 @@ $(document).ready(function () {
 
     $("#keyInBack").on('click', function () {
         $("#keyInView").fadeOut();
+        $("#payOptionView").fadeIn();
+        cleanCreditCardFields();
+    });
+
+    $(".process-close-action").on('click', function () {
+        cleanCreditCardFields();
+        $('.process-menu').removeClass('active');
+        $('.fade-body').removeClass('d-block');
+        $("#keyInView").fadeOut();
+        $("#swipeView").fadeOut();
         $("#payOptionView").fadeIn();
     });
 });

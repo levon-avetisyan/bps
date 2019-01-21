@@ -3371,6 +3371,17 @@ h1.section-title {
           -webkit-transform: scale(1.15);
                   transform: scale(1.15);
           font-weight: 700; }
+  .process-menu .process-close-action {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 1080; }
+    .process-menu .process-close-action i {
+      display: block;
+      font-weight: 600;
+      color: #2a2b2d;
+      cursor: pointer; }
 
 .payment-option {
   height: 100px;
@@ -3444,6 +3455,24 @@ h1.section-title {
       font-size: 15px; }
       .company-info ul li img {
         margin-right: 10px; }
+      .company-info ul li a {
+        color: #2a2b2d;
+        position: relative; }
+        .company-info ul li a:before {
+          content: '';
+          height: 1px;
+          background-color: #2a2b2d;
+          position: absolute;
+          bottom: -1px;
+          left: 0;
+          right: 100%;
+          -webkit-transition: right 0.3s ease;
+          transition: right 0.3s ease; }
+        .company-info ul li a:hover, .company-info ul li a:active, .company-info ul li a:focus {
+          text-decoration: none;
+          outline: none; }
+          .company-info ul li a:hover:before, .company-info ul li a:active:before, .company-info ul li a:focus:before {
+            right: 0; }
 
 #swipeView, #keyInView, #payOptionView {
   padding: 20px;
@@ -3562,7 +3591,7 @@ h1.section-title {
     outline: none; }
 
 .selected-options {
-  padding-top: 60px;
+  padding-top: 52px;
   padding-bottom: 8px;
   right: 0;
   left: 0;
@@ -3585,7 +3614,7 @@ h1.section-title {
       font-size: 16px; }
 
 footer {
-  position: absolute;
+  position: fixed;
   right: 0;
   bottom: 0;
   left: 0;
@@ -3626,6 +3655,7 @@ footer {
       font-size: 16px; }
     .other-amount-wrap .control-wrap input {
       height: 40px;
+      line-height: 36px;
       font-size: 20px;
       padding-top: 2px;
       padding-bottom: 2px;
