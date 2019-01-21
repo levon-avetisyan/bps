@@ -85,6 +85,7 @@ $(document).ready(function () {
                 indx = 0;
             }
             all.eq(indx).focus();
-        }
+        },
+        openOn: openOnEvents
     });
 });
