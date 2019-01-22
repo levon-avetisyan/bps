@@ -3085,6 +3085,8 @@ h1.section-title {
     height: 100px;
     width: 148px;
     padding-left: 8px; }
+    .option-box.amount-option.active h3 {
+      color: white !important; }
     .option-box.amount-option h2 {
       position: relative;
       font-size: 32px;
@@ -3096,6 +3098,12 @@ h1.section-title {
         top: 5px;
         font-size: 16px;
         font-weight: 500; }
+    .option-box.amount-option h3.amount-title {
+      font-size: 16px;
+      line-height: 14px;
+      font-weight: 300;
+      margin-bottom: 0;
+      color: #5a6268; }
   .option-box.duration-option {
     width: 160px;
     font-size: 24px; }
@@ -3105,8 +3113,6 @@ h1.section-title {
       color: #5a6268;
       -webkit-box-shadow: none;
               box-shadow: none; }
-      .option-box.duration-option.disabled label {
-        cursor: default; }
   .option-box.campaign-option {
     height: 100px;
     width: 208px;
@@ -3311,6 +3317,7 @@ h1.section-title {
   transition: all 0.8s ease-in; }
 
 .process-menu {
+  border-radius: 12px;
   top: 0;
   left: 50%;
   -webkit-transition: all 0.5s ease-in;
@@ -3382,6 +3389,30 @@ h1.section-title {
       font-weight: 600;
       color: #2a2b2d;
       cursor: pointer; }
+
+.card-input-wrap .card-control::-webkit-input-placeholder {
+  font-size: 14px;
+  opacity: 0;
+  font-weight: 200; }
+
+.card-input-wrap .card-control::-ms-input-placeholder {
+  font-size: 14px;
+  opacity: 0;
+  font-weight: 200; }
+
+.card-input-wrap .card-control::placeholder {
+  font-size: 14px;
+  opacity: 0;
+  font-weight: 200; }
+
+.card-input-wrap.focused .card-control::-webkit-input-placeholder {
+  opacity: 1 !important; }
+
+.card-input-wrap.focused .card-control::-ms-input-placeholder {
+  opacity: 1 !important; }
+
+.card-input-wrap.focused .card-control::placeholder {
+  opacity: 1 !important; }
 
 .payment-option {
   height: 100px;
@@ -3637,12 +3668,16 @@ footer {
     .amounts .container, .duration .container, .campaign .container {
       padding: 0 40px; }
   .option-box.amount-option {
+    padding: 0 4px;
     height: 60px;
     width: 80px; }
     .option-box.amount-option h2 {
       font-size: 22px; }
       .option-box.amount-option h2 sup {
         font-size: 13px; }
+    .option-box.amount-option h3 {
+      font-size: 12px !important;
+      text-align: center; }
   .company-logo {
     padding-top: 10px;
     margin-bottom: 0 !important; }
@@ -3730,7 +3765,12 @@ footer {
         -webkit-transition: all 0.3s ease;
         transition: all 0.3s ease; }
         .selected-options ul.selected-options-list li span {
-          font-size: 24px; } }
+          font-size: 24px; }
+  .footer-logo-wrap {
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%); } }
 
 @media (min-width: 992px) {
   .amounts .container, .duration .container, .campaign .container {

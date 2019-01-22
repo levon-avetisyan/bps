@@ -1,17 +1,26 @@
 $(document).ready(function () {
+    // Full section scroll init
     $("#fullpage").fullpage({
         anchors: ['amounts', 'durations', 'campaigns'],
         navigation: true,
         normalScrollElements: '#freqSelect'
     });
+
+    // Scroll Top
     $("#scrollTop").on("click", function () {
         $.fn.fullpage.moveTo('amounts', 1);
     });
+
+    // Virtual Keyboard init
     var openOnEvents = $(window).width() <= 576 ? null : ['focus'];
-    $("#otherAmountInput, #cardNumberInput, #cardMonthInput, #cardYearInput, #cardZipInput").keyboard({
+
+    // Number Inputs
+    var numbInputs = $("#otherAmountInput, #cardNumberInput, #cardMonthInput, #cardYearInput, #cardZipInput");
+
+    numbInputs.keyboard({
         appendLocally: true,
         layout: 'custom',
-        customLayout: {'normal': ['1 2 3', '4 5 6', '7 8 9', '{b} 0 .', '{prev} {next}', '{accept} {cancel}']},
+        customLayout: {'normal': ['1 2 3', '4 5 6', '7 8 9', '{b} 0 .', '{accept}']},
         visible: function (e, keyboard, el) {
             keyboard.$el.parent().addClass("focused");
         },
@@ -46,12 +55,25 @@ $(document).ready(function () {
             }
             all.eq(indx).focus();
         },
-        openOn: openOnEvents
+        openOn: openOnEvents,
+        accepted: function(event, keyboard, el) {
+            if($(el).hasClass('other-amount-input')){
+                let value = $(this).val();
+                let decimalNumber = Number.parseFloat(value).toFixed(2);
+                if(value){
+                    $(this).val(decimalNumber);
+                }
+            }
+        }
+    }).extend($.keyboard.keyaction.accept = function (base) {
+        base.switchInput(true, base.options.autoAccept);
     });
+
+    // Text Input
     $("#cardNameInput").keyboard({
         appendLocally: true,
         layout: 'custom',
-        customLayout: {'normal': ['` 1 2 3 4 5 6 7 8 9 0 - = {bksp}', '{tab} q w e r t y u i o p [ ] \\', 'a s d f g h j k l ; \' {enter}', '{shift} z x c v b n m , . / {shift}', '{accept} {space} {cancel} {prev} {next}']},
+        customLayout: {'normal': ['` 1 2 3 4 5 6 7 8 9 0 - = {b}', '{t} q w e r t y u i o p [ ] \\', 'a s d f g h j k l ; \' {enter}', '{s} z x c v b n m , . / {s}', '{space} {accept}']},
         visible: function (e, keyboard, el) {
             keyboard.$el.parent().addClass("focused");
         },
@@ -86,6 +108,6 @@ $(document).ready(function () {
             }
             all.eq(indx).focus();
         },
-        openOn: openOnEvents
+        openOn: openOnEvents,
     });
 });

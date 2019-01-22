@@ -29,15 +29,7 @@ $(document).ready(function () {
         setTimeout("window.location = \"#durations\"", 200);
     });
 
-    $("#otherAmountInput").on('blur', function () {
-        var value = $(this).val();
-        var decimalNumber = Number.parseFloat(value).toFixed(2);
-        if (value.length > 0) {
-            $(this).val(decimalNumber);
-        }
-    });
-
-    $("#otherAmountInput").on('focus', function () {
+    $("#otherAmountInput.ui-keyboard-input").on('focus', function () {
         $('#confirmAmount').removeClass('disabled');
         $("input[name='sponsorAmount']").parent().parent().removeClass('active');
     });
@@ -62,20 +54,20 @@ $(document).ready(function () {
         $('#durationSelected').html($(this).val());
         $("#freqSelect li").removeClass("disabled");
         if (value === 'once') {
-            $("#durationTimes").html("Ongoing");
+            $("#durationTimes").html("1X");
             $("#freqSelect li[class='active']").removeClass();
-            $("#freqSelect li:contains(\'Ongoing\')").addClass("active");
+            $("#freqSelect li:contains(\'1X\')").addClass("active");
             $("#freqSelect li[class!='active']").addClass("disabled");
-            $("input[name='duration']").filter('[value!="once"]').prop('disabled', true).parent().parent().addClass('disabled');
+            // $("input[name='duration']").filter('[value!="once"]').prop('disabled', true).parent().parent().addClass('disabled');
             setTimeout("window.location = \"#campaigns\"", 200);
-            $(this).one('click', function () {
-                $(this).prop("checked", false);
-                $("#durationTimes").html("--");
-                $('#durationSelected').html("--");
-                $('input:radio[name=' + $(this).attr('name') + ']').parent().parent().removeClass('active');
-                $("input[name='duration']").filter('[value!="once"]').prop('disabled', false).parent().parent().removeClass('disabled');
-                $("#freqSelect li[class!='active']").removeClass("disabled");
-            });
+            // $(this).one('click', function () {
+            //     $(this).prop("checked", false);
+            //     $("#durationTimes").html("--");
+            //     $('#durationSelected').html("--");
+            //     $('input:radio[name=' + $(this).attr('name') + ']').parent().parent().removeClass('active');
+            //     $("input[name='duration']").filter('[value!="once"]').prop('disabled', false).parent().parent().removeClass('disabled');
+            //     $("#freqSelect li[class!='active']").removeClass("disabled");
+            // });
         } else {
             $(".freq-select").addClass('highlight');
             setTimeout("$(\".freq-select\").removeClass('highlight');", 1000);

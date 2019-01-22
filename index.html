@@ -54,7 +54,9 @@
                             <label for="amountSM">
                                 <input type="radio" value="$100.00" name="sponsorAmount" id="amountSM">
                             </label>
-                            <h2><sup><i class="fas fa-dollar-sign"></i></sup>100</h2></div>
+                            <h2><sup><i class="fas fa-dollar-sign"></i></sup>100</h2>
+                            <h3 class="amount-title">Daily Sponsor</h3>
+                        </div>
                         <div class="option-box amount-option">
                             <label for="amountMD">
                                 <input type="radio" value="$150.00" name="sponsorAmount" id="amountMD">
@@ -82,7 +84,7 @@
                     <div class="vk-wrap control-wrap d-flex flex-column flex-sm-row align-items-center">
                         <div class="input-wrap position-relative mb-3 mb-sm-0">
                             <input placeholder="0.00" step='0.01' id="otherAmountInput" type="number" min="0"
-                                   oninput="validity.valid||(value='');" class="form-control bps-input">
+                                   oninput="validity.valid||(value='');" class="form-control bps-input other-amount-input">
                             <i class="fas fa-dollar-sign"></i>
                         </div>
                         <button id="confirmAmount" class="btn-confirm">Confirm</button>
@@ -206,34 +208,34 @@
         <div class="form-wrap">
             <form class="credit-card-form">
                 <div class="form-group">
-                    <div class="">
+                    <div class="card-input-wrap">
                         <label for="cardNumberInput" class="floating-label">Card Number</label>
-                        <input id="cardNumberInput" type="text" class="form-control card-control">
+                        <input id="cardNumberInput" placeholder="Card Number" type="text" class="form-control card-control">
                     </div>
                 </div>
                 <div class="form-group row no-gutters">
                     <div class="col pr-2 pr-sm-3">
-                        <div class="">
+                        <div class="card-input-wrap">
                             <label for="cardMonthInput" class="floating-label">Exp.Month</label>
-                            <input id="cardMonthInput" type="text" class="form-control card-control">
+                            <input id="cardMonthInput" placeholder="Exp.Month" type="text" class="form-control card-control">
                         </div>
                     </div>
                     <div class="col pr-2 pr-sm-3">
-                        <div class="">
+                        <div class="card-input-wrap">
                             <label for="cardYearInput" class="floating-label">Exp.Year</label>
-                            <input id="cardYearInput" type="text" class="form-control card-control">
+                            <input id="cardYearInput" placeholder="Exp.Year" type="text" class="form-control card-control">
                         </div>
                     </div>
                     <div class="col">
-                        <div class="zip-code-wrap">
+                        <div class="card-input-wrap zip-code-wrap">
                             <label for="cardZipInput" class="floating-label">Zip</label>
-                            <input id="cardZipInput" type="text" class="form-control card-control">
+                            <input id="cardZipInput" type="text" placeholder="Zip" class="form-control card-control">
                         </div>
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group card-input-wrap">
                     <label for="cardNameInput" class="floating-label">Name on Card</label>
-                    <input id="cardNameInput" type="text" class="form-control card-control">
+                    <input id="cardNameInput" placeholder="Name on Card" type="text" class="form-control card-control">
                 </div>
                 <div class="form-actions d-flex justify-content-center align-items-center mt-5">
                     <button id="keyInBack" class="btn-secondary-action mr-3">
@@ -250,7 +252,6 @@
         <h1 class="text-center modal-title  mb-5">Swipe</h1>
     </div>
 </div>
-<div class="fade-body"></div>
 <footer>
     <div class="footer-content w-100 px-3 d-flex justify-content-between align-items-center">
         <div id="scrollTop" class="scroll-top d-flex flex-row justify-content-center align-items-center">
@@ -273,6 +274,7 @@
         </div>
     </div>
 </footer>
+<div class="fade-body"></div>
 <script src="./js/document-ready.js"></script>
 </body>
 </html>
