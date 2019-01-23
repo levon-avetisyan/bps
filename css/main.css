@@ -3788,4 +3788,10 @@ footer {
 
 @media (min-width: 1200px) {
   .duration .duration-option {
-    width: 180px; } }
+    width: 180px; }
+  .ui-keyboard .ui-keyboard-button {
+    font-size: 20px; } }
+
+@media (min-width: 1440px) {
+  .ui-keyboard .ui-keyboard-button {
+    font-size: 22px; } }
